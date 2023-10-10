@@ -1,36 +1,87 @@
-const http = require('http'),
-    fs = require('fs'),
-    url = require('url');
+//Import Modules
+const bodyParser = require ('body-parser');
+const express = require('express');
+const dotenv = require('dotenv')
+const mongoose = require('mongoose');
+const uuidv4 = require ("uuid");
+const Models = require('../Models/AllModels.js');
 
-http.createServer((request, response) => {
-    let addr = request.url,
-        q = url.parse(addr, true),
-        filePath = '';
+// Connect Server Setup Environmental Variables
+const PORT = process.env.PORT || 5000
+dotenv.config({path: './.env'})
+const app = express();
+app.use(bodyParser.json())
+app.use(express.urlencoded({ extended: true }))
 
-fs.appendFile('log.txt', 'URL: ' + addr + '\nTimestamp: ' + new Date() + '\n\n', (err) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log('Added to log.');
-        }
-});
+//Bring In Models and Data
+const Movies = Models.Movie
+const Users = Models.User
+const Directors = Models.Directors
+const Genre = Models.Genre
 
-if (q.pathname.includes('documentation')) {
-    filePath = (__dirname + '/documentation.html');
-} else {
-    filePath = 'index.html';
-}
-
-fs.readFile(filePath, (err, data) => {
-    if (err) {
-        throw err;
+//Connect to MongoDB
+const connectDB = async () => {
+    try {
+        const conn = await mongoose.connect(process.env.MONGO_URI)
+        console.log(`Mongo DB Connected: ${conn.connection.host}`)
+    } catch (error) {
+        console.log(`Error ${error.message}`)
+        process.exit(1)
     }
+}
+connectDB()
 
-    response.writeHead(200, { 'Content-Type': 'text/html' });
-    response.write(data);
-    response.end();
+//ROUTES
 
-});
+app.get('/', (req, res)=>{
+    res.send('Hello From Backend')
+})
 
-}).listen(8080);
-console.log('My test server is running on Port 8080.');
+app.get('/documentation', (req, res)=>{
+    let __dirname = '../src'
+    res.sendFile('documentation.html', ({root: __dirname}));
+})
+
+//Get All Movies
+app.get('/Movies',(req, res)=>{
+    Movies.find()
+    .then((Movies) => {
+        res.status(201).json(Movies);
+    })
+    .catch((err) => {
+        console.error(err);
+        res.status(500).send('Error: ' + err);
+    });
+})
+
+//Create New User
+
+app.post('/Users', async (req, res)=>{
+    Users.findOne({Username: req.body.Username})
+    .then((user)=>{
+        if(user){
+            return res.status(400).send(req.body.Username + "Already Exists")
+        }else{
+            Users.Create({
+                UserName: req.body.Username,
+                Password: req.body.Password,
+                Email: req.body.Email,
+                Birthday: req.body.Birthday
+            })
+            .then((user)=>{ res.status(201).json(user)})
+            .catch((error)=>{
+                console.log(error);
+                res.status(500).send('Error ' + error)
+            })
+        }
+    })
+    .catch((error)=>{
+        console.log(error);
+        res.status(500).send('Error ' + error)
+    })
+})
+
+
+
+
+app.listen(PORT, ()=>{console.log(`Your Server is Listening on Port: ${PORT}`)})
