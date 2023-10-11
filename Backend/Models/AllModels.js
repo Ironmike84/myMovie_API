@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MovieSchema = mongoose.Schema ({
+const MoviesSchema = mongoose.Schema ({
     _id: {type: Object},
     Title: { type: String},
     Genre: {_id: {type: Object, ref: "Genre", required: true}},
@@ -26,13 +26,13 @@ const DirectorsSchema = mongoose.Schema ({
     Movies: [{type: Object}]
 })
 
-const UserSchema = mongoose.Schema ({
+const UsersSchema = mongoose.Schema ({
     _id: {type: Object, required:true},
-    Username: String,
+    Username: {type: String, required: true},
     Password: String,
     Email: String,
     Birthday: Date,
-    FavoriteMovies:[{Object}],
+    FavoriteMovies:[{type: Object, ref:'Movies'}],
     ImagePath: String
 })
 
@@ -46,22 +46,22 @@ const ActorsSchema = mongoose.Schema ({
 })
 
 
-const GenreSchema = mongoose.Schema ({
+const GenresSchema = mongoose.Schema ({
     _id: {type: Object},
     Name: String,
     Description: String
 })
 
 let Directors = mongoose.model('Directors', DirectorsSchema)
-let Genre = mongoose.model('Genre', GenreSchema)
-let Movie = mongoose.model('Movie', MovieSchema)
+let Genres = mongoose.model('Genres', GenresSchema)
+let Movies = mongoose.model('Movies', MoviesSchema)
 let Actors = mongoose.model('Actors', ActorsSchema)
-let User = mongoose.model("User", UserSchema)
+let Users = mongoose.model("Users", UsersSchema)
 
 // export default {User, Movie, Genre, Directors}
 
-module.exports.User = User
-module.exports.Movie = Movie
-module.exports.Genre = Genre
+module.exports.Users = Users
+module.exports.Movies = Movies
+module.exports.Genres = Genres
 module.exports.Actors = Actors
 module.exports.Directors = Directors
