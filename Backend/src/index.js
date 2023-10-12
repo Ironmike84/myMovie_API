@@ -20,17 +20,11 @@ require('./Passport.js');
 const cors = require('cors')
 app.use(cors())
 
-//Bring In Models and Data
-const Movies = Models.Movies
-const Users = Models.Users
-const Directors = Models.Directors
-const Genres = Models.Genres
-const Actors = Models.Actors
-
 //Connect to MongoDB
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect(process.env.MONGO_URI)
+        const conn = await mongoose.connect("mongodb+srv://michaelgrosstn:Febuary22013@cluster1.bb4ff5n.mongodb.net/Muvies?retryWrites=true&w=majority", {
+            useNewUrlParser: true, useUnifiedTopology: true})
         console.log(`Mongo DB Connected: ${conn.connection.host}`)
     } catch (error) {
         console.log(`Error ${error.message}`)
@@ -38,6 +32,13 @@ const connectDB = async () => {
     }
 }
 connectDB()
+
+//Bring In Models and Data
+const Movies = Models.Movies
+const Users = Models.Users
+const Directors = Models.Directors
+const Genres = Models.Genres
+const Actors = Models.Actors
 
 //ROUTES
 
@@ -51,7 +52,7 @@ app.get('/documentation', (req, res)=>{
 })
 
 //Get All Movies
-app.get('/Movies', passport.authenticate('jwt', {session: false}), async (req, res)=>{
+app.get('/Movies', async (req, res)=>{
     await Movies.find()
     .then((Movies) => {
         res.status(201).json(Movies);
@@ -76,9 +77,9 @@ app.get('/Movies/:Movie', async (req, res)=>{
 //Create New User
 app.post('/Users', 
     [
-        check('Username', 'Username is required').isLength({min: 5});
-        check('Username', 'Username contains non alphanumeric Characters - not allowed.').isAlphaneric();
-        check('Password', 'Password is Required').not().isEmpty();
+        check('Username', 'Username is required').isLength({min: 5}),
+        check('Username', 'Username contains non alphanumeric Characters - not allowed.').isAlphanumeric(),
+        check('Password', 'Password is Required').not().isEmpty(),
         check('Email', 'Email is not Valid').isEmail()
     ],async (req, res) => {
         //Check the validation of object for Errors
