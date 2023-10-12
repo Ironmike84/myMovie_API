@@ -18,7 +18,7 @@
   "description": "Movie_Api Backend",
   "main": "index.js",
   "scripts": {
-    "start": "node Backend/src/index.js"
+    "start": "node ./app/src/index.js"
   },
   "keywords": [
     "Backend"
