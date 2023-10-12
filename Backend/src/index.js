@@ -5,6 +5,7 @@ const dotenv = require('dotenv')
 const mongoose = require('mongoose');
 const { v4: uuidv4 } = require('uuid');
 const Models = require('../Models/AllModels.js');
+const { check, validationResult } = require('express-validator')
 
 // Connect Server Setup Environmental Variables
 const PORT = process.env.PORT || 5000
@@ -12,6 +13,12 @@ dotenv.config({path: './.env'})
 const app = express();
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true }))
+let auth = require('./Auth.js');
+const passport = require('passport');
+require('./Passport.js');
+//Allow CORS
+const cors = require('cors')
+app.use(cors())
 
 //Bring In Models and Data
 const Movies = Models.Movies
@@ -44,8 +51,8 @@ app.get('/documentation', (req, res)=>{
 })
 
 //Get All Movies
-app.get('/Movies',(req, res)=>{
-    Movies.find()
+app.get('/Movies', passport.authenticate('jwt', {session: false}), async (req, res)=>{
+    await Movies.find()
     .then((Movies) => {
         res.status(201).json(Movies);
     })
@@ -66,9 +73,20 @@ app.get('/Movies/:Movie', async (req, res)=>{
     })
 })
 
-
 //Create New User
-app.post('/Users', async (req, res)=>{
+app.post('/Users', 
+    [
+        check('Username', 'Username is required').isLength({min: 5});
+        check('Username', 'Username contains non alphanumeric Characters - not allowed.').isAlphaneric();
+        check('Password', 'Password is Required').not().isEmpty();
+        check('Email', 'Email is not Valid').isEmail()
+    ],async (req, res) => {
+        //Check the validation of object for Errors
+        let errors = validationResult(req)
+        if(!errors.isEmpty()){
+            return res.status(422).json({ errors: errors.array()})
+        }
+    let hashedPassword = Users.hashPassword(req.body.Password);
     Users.findOne({Username: req.body.Username})
     .then((user)=>{
         if(user){
@@ -77,7 +95,7 @@ app.post('/Users', async (req, res)=>{
             Users.create({
                 _id: uuidv4(),
                 Username: req.body.Username,
-                Password: req.body.Password,
+                Password: hashedPassword,
                 Email: req.body.Email,
                 Birthday: req.body.Birthday
             })
