@@ -23,7 +23,8 @@ app.use(cors())
 //Connect to MongoDB
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect("mongodb+srv://michaelgrosstn:Febuary22013@cluster1.bb4ff5n.mongodb.net/Muvies?retryWrites=true&w=majority")
+        const conn = await mongoose.connect("mongodb+srv://michaelgrosstn:Febuary22013@cluster1.bb4ff5n.mongodb.net/Muvies?retryWrites=true&w=majority", {
+            useNewUrlParser: true, useUnifiedTopology: true })
         console.log(`Mongo DB Connected: ${conn.connection.host}`)
     } catch (error) {
         console.log(`Error ${error.message}`)
