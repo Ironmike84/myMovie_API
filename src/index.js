@@ -13,7 +13,7 @@ dotenv.config({path: './.env'})
 const app = express();
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true }))
-let auth = require('./Auth.js');
+const auth = require('./Auth.js')(app)
 const passport = require('passport');
 require('./Passport.js');
 //Allow CORS
@@ -75,7 +75,7 @@ app.get('/Movies/:Movie', async (req, res)=>{
 })
 
 //Create New User
-app.post('/Users', 
+app.post('/Users',
     [
         check('Username', 'Username is required').isLength({min: 5}),
         check('Username', 'Username contains non alphanumeric Characters - not allowed.').isAlphanumeric(),
