@@ -20,13 +20,7 @@ require('./Passport.js');
 const cors = require('cors')
 
 app.use(cors({
-    origin: 'http://localhost:5000',
-    origin: 'http://localhost:3000',
-    origin: 'http://localhost',
-    origin: 'http://muviesapp-473300298fba.herokuapp.com/',
-    origin: 'http://muviesapp-473300298fba.herokuapp.com/login'
-
-
+    origin: '*'
 }));
 
 //Connect to MongoDB
