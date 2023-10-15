@@ -18,7 +18,7 @@ const passport = require('passport');
 require('./Passport.js');
 //Allow CORS
 const cors = require('cors')
-const whitelist = ['http://developer1.com', 'http://developer2.com']
+const whitelist = ['http://localhost:3000', 'http://localhost:5000', '*', 'https://muviesapp-473300298fba.herokuapp.com/,https://muviesapp-473300298fba.herokuapp.com/login, https://muviesapp-473300298fba.herokuapp.com/movies']
 const corsOptions = {
   origin: (origin, callback) => {
     if (whitelist.indexOf(origin) !== -1) {
