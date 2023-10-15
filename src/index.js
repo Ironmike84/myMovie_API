@@ -19,19 +19,17 @@ require('./Passport.js');
 //Allow CORS
 const cors = require('cors')
 const whitelist = ['http://localhost:3000', 'http://localhost:5000', '*', 'https://muviesapp-473300298fba.herokuapp.com/,https://muviesapp-473300298fba.herokuapp.com/login, https://muviesapp-473300298fba.herokuapp.com/movies']
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error())
-    }
-  }
-}
-app.use(cors(corsOptions));
+
+
 app.use(cors({
     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 }));
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+  });
 
 //Connect to MongoDB
 const connectDB = async () => {
