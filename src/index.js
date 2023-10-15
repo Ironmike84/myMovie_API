@@ -16,10 +16,6 @@ app.use(express.urlencoded({ extended: true }))
 const auth = require('./Auth.js')(app)
 const passport = require('passport');
 require('./Passport.js');
-//Allow CORS
-const cors = require('cors')
-
-app.use(cors());
 
 //Connect to MongoDB
 const connectDB = async () => {
