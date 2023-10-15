@@ -16,11 +16,19 @@ app.use(express.urlencoded({ extended: true }))
 const auth = require('./Auth.js')(app)
 const passport = require('passport');
 require('./Passport.js');
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+//Allow CORS
+const cors = require('cors')
+
+app.use(cors({
+    origin: 'http://localhost:5000',
+    origin: 'http://localhost:3000',
+    origin: 'http://localhost',
+    origin: 'http://muviesapp-473300298fba.herokuapp.com/',
+    origin: 'http://muviesapp-473300298fba.herokuapp.com/login'
+
+
+}));
+
 //Connect to MongoDB
 const connectDB = async () => {
     try {
