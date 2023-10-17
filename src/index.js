@@ -17,9 +17,20 @@ const auth = require('./Auth.js')(app)
 const passport = require('passport');
 require('./Passport.js');
 const cors = require('cors');
+const corsOptions ={
+    origin: "*",
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use((request, response, next)=>{
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    response.setHeader("Access-Control-Allow-Credentials", "true");
+    response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+    next();
+})
+app.use(cors(corsOptions));
 
-
-//Allow CORS
 
 
 //Connect to MongoDB
@@ -34,19 +45,6 @@ const connectDB = async () => {
     }
 }
 connectDB()
-const corsOptions ={
-    origin: "*",
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
-app.use((request, response, next)=>{
-    response.setHeader("Access-Control-Allow-Origin", "*");
-    response.setHeader("Access-Control-Allow-Credentials", "true");
-    response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-    response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-    next();
-})
-app.use(cors(corsOptions));
 
 
 //Bring In Models and Data
