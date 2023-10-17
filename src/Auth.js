@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 require('./Passport.js')
 const express = require('express')
-const router = express.Router()
 const app = express()
 app.use((request, response, next)=>{
     response.setHeader("Access-Control-Allow-Origin", "*");
@@ -24,7 +23,7 @@ let generateJWTToken = (user) => {
 
 //Post Login
 
-module.exports = () => {
+module.exports = (router) => {
     router.post('/Login', (req, res) => {
         passport.authenticate('local', { session: false },
             (error, user, info) => {
