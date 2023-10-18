@@ -44,6 +44,7 @@ const connectDB = async () => {
 }
 connectDB()
 
+app.use(connectDB)
 
 //Bring In Models and Data
 const Movies = Models.Movies
