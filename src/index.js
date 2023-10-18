@@ -18,7 +18,7 @@ require('./Passport.js');
 const cors = require('cors');
 
 const corsOptions ={
-    origin: ["*", "http://localhost:3000", "http://localhost:5000"],
+    origin: "*",
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
