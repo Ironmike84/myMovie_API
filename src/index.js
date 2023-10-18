@@ -17,7 +17,7 @@ require('./Auth.js')(app)
 const passport = require('passport');
 require('./Passport.js');
 const cors = require('cors');
-const LoginRoute  = require('./Auth.js')
+
 
 
 let headers= {
@@ -27,7 +27,7 @@ let headers= {
     "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
 }
 const corsOptions ={
-    origin: "*",
+    origin: "*",headers,
     headers: headers,
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
@@ -65,7 +65,6 @@ app.get('/', (req, res)=>{
     res.send('Hello From Backend')
 })
 
-app.post('/Login', LoginRoute)
 
 app.get('/documentation', (req, res)=>{
     let __dirname = '../src'
