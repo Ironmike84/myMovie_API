@@ -14,11 +14,8 @@ const app = express();
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true }))
 require('./Auth.js')(app)
-const passport = require('passport');
 require('./Passport.js');
 const cors = require('cors');
-
-
 
 let headers= {
     "Access-Control-Allow-Origin": "*",
@@ -33,10 +30,6 @@ const corsOptions ={
     optionSuccessStatus:200
 }
 app.use(cors(corsOptions));
-
-
-
-
 
 //Connect to MongoDB
 const connectDB = async () => {
@@ -60,15 +53,13 @@ const Genres = Models.Genres
 const Actors = Models.Actors
 
 //ROUTES
-
-app.get('/', (req, res)=>{
+app.get('/Login', (req, res)=>{
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.setHeader("Access-Control-Allow-Credentials", "true");
     res.setHeader("Access-Control-Max-Age", "1800");
     res.setHeader("Access-Control-Allow-Headers", "content-type");
     res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" );
 })
-
 
 app.get('/documentation', (req, res)=>{
     let __dirname = '../src'
