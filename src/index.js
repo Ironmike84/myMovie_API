@@ -13,21 +13,22 @@ dotenv.config({path: './.env'})
 const app = express();
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true }))
-const auth = require('./Auth.js')(app)
+require('./Auth.js')(app)
 const passport = require('passport');
 require('./Passport.js');
 const cors = require('cors');
 const { LoginRoute } = require('./Auth.js')
 
-app.use((request, response, next)=>{
-    response.setHeader("Access-Control-Allow-Origin", "*");
-    response.setHeader("Access-Control-Allow-Credentials", "true");
-    response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-    response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-    next();
-})
+
+let headers= {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
+    "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
+}
 const corsOptions ={
     origin: "*",
+    headers: headers,
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
