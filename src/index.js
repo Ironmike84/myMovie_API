@@ -17,6 +17,7 @@ const auth = require('./Auth.js')(app)
 const passport = require('passport');
 require('./Passport.js');
 const cors = require('cors');
+const { LoginRoute } = require('./Auth.js')
 
 app.use((request, response, next)=>{
     response.setHeader("Access-Control-Allow-Origin", "*");
@@ -62,6 +63,8 @@ const Actors = Models.Actors
 app.get('/', (req, res)=>{
     res.send('Hello From Backend')
 })
+
+app.post('/Login', LoginRoute)
 
 app.get('/documentation', (req, res)=>{
     let __dirname = '../src'

@@ -12,8 +12,6 @@ app.use((request, response, next)=>{
     response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
     next();
 })
-
-
 let generateJWTToken = (user) => {
     return jwt.sign(user, jwtSecret, {
         subject: user.Username,
@@ -24,7 +22,7 @@ let generateJWTToken = (user) => {
 
 //Post Login
 
-module.exports = () => {
+module.exports = LoginRoute = () => {
     router.post('/Login', (req, res) => {
         passport.authenticate('local', { session: false },
             (error, user, info) => {
