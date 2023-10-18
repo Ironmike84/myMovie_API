@@ -17,7 +17,7 @@ require('./Auth.js')(app)
 const passport = require('passport');
 require('./Passport.js');
 const cors = require('cors');
-const { LoginRoute } = require('./Auth.js')
+const LoginRoute  = require('./Auth.js')
 
 
 let headers= {
