@@ -13,7 +13,7 @@ dotenv.config({path: './.env'})
 const app = express();
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true }))
-let allowedOrigins = ["Access-Control-Allow-Origin: *"];
+let allowedOrigins = ["*"];
 
 app.use(cors({
   origin: (origin, callback) => {
@@ -26,12 +26,7 @@ app.use(cors({
   }
 }));
 require('./Auth.js')(app);
-
 require('./Passport');
-
-
-
-
 
 
 //Connect to MongoDB
