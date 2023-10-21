@@ -27,8 +27,8 @@ app.use(cors({
 }));
 let auth = require('./Auth.js')(app);
 app.use(auth);
-const passport = require('./Passport');
-app.use(passport)
+require('./Passport');
+
 
 
 
