@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const { v4: uuidv4 } = require('uuid');
 const Models = require('../Models/AllModels.js');
 const { check, validationResult } = require('express-validator')
-
+const cors = require('cors');
 // Connect Server Setup Environmental Variables
 const PORT = process.env.PORT || 5000
 dotenv.config({path: './.env'})
@@ -22,7 +22,7 @@ app.use(cors(corsOptions));
 
 require('./Auth.js')(app)
 require('./Passport.js');
-const cors = require('cors');
+
 
 
 
