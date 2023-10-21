@@ -13,12 +13,7 @@ dotenv.config({path: './.env'})
 const app = express();
 app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: true }))
-const corsOptions ={
-    origin: "*",
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
+app.use(cors());
 
 require('./Auth.js')(app)
 require('./Passport.js');

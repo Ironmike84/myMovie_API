@@ -65,7 +65,7 @@ let Directors = mongoose.model('Directors', DirectorsSchema)
 let Genres = mongoose.model('Genres', GenresSchema)
 let Movies = mongoose.model('Movies', MoviesSchema)
 let Actors = mongoose.model('Actors', ActorsSchema)
-let Users = mongoose.model("Users", UsersSchema)
+let Users = mongoose.model('Users', UsersSchema)
 
 // export default {User, Movie, Genre, Directors}
 
