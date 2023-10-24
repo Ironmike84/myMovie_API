@@ -115,7 +115,7 @@ app.post('/Users',
 })
 
 //Get All Users
-app.get('/Users', async (req, res)=>{
+app.get('/Users/AllUsers', async (req, res)=>{
     await Users.find()
     .then((users)=>{
         res.status(201).json(users)
@@ -127,7 +127,7 @@ app.get('/Users', async (req, res)=>{
 })
 
 //Find User By Username
-app.get('/Users/:Username', async (req, res) => {
+app.get('/Users/Profile/:Username', async (req, res) => {
     await Users.findOne({ Username: req.params.Username })
     .then((user) => {
         res.json(user);
@@ -139,7 +139,7 @@ app.get('/Users/:Username', async (req, res) => {
 });
 
 //Update Current User
-app.put('/Users/:Username', async (req, res)=>{
+app.put('/Users/UpdateProfile/:Username', async (req, res)=>{
     await Users.findOneAndUpdate({Username: req.params.Username}, { $set: {
         Username: req.body.Username,
         Password: req.body.Password,
@@ -156,7 +156,7 @@ app.put('/Users/:Username', async (req, res)=>{
 })
 
 //Remove User By Id
-app.delete('/Users/:Username', async (req, res)=>{
+app.delete('/Users/DeleteUser/:Username', async (req, res)=>{
     await Users.deleteOne({Username: req.params.Username})
     .then((RemovedUser)=>{
         res.send(RemovedUser)
@@ -168,7 +168,7 @@ app.delete('/Users/:Username', async (req, res)=>{
 })
 
 //Add To Users Favorites
-app.post('/Users/:Username/FavMovies/:MovieID', async (req, res) => {
+app.post('/Users/:Username/FavMovies/Add/:MovieID', async (req, res) => {
     await Users.findOneAndUpdate({ Username: req.params.Username }, {
         $push: { FavoriteMovies: {
             ObjectId: req.params.MovieID,
@@ -185,7 +185,7 @@ app.post('/Users/:Username/FavMovies/:MovieID', async (req, res) => {
     });
 });
 // Remove Favorite MovieBy ID
-app.delete('/Users/:Username/FavMovies/:_id', async (req, res) => {
+app.delete('/Users/:Username/FavMovies/Delete/:_id', async (req, res) => {
     await Users.updateOne({Username: req.params.Username },
         {FavoriteMovies: { $pull: { ObjectId: Number(req.params._id)}}} )
     .then((removed)=>{
