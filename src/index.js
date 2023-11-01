@@ -175,7 +175,8 @@ app.post('/Users/:Username/FavMovies/Add/:MovieID', async (req, res) => {
             ObjectId: req.params.MovieID,
             Title: req.body.Title,
             Genre: req.body.Genre,
-            Rating: req.body.Rating
+            Rating: req.body.Rating,
+            ImagePath: req.body.ImagePath
         }}},
      { new: true }) // This line makes sure that the updated document is returned
     .then((updatedUser) => {
