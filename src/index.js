@@ -64,8 +64,8 @@ app.get('/Movies', async (req, res)=>{
     });
 })
 
-app.get('/Movies/:Movie', async (req, res)=>{
-    await Movies.findOne({Title: req.params.Movie})
+app.get('/Movies/:MovieID', async (req, res)=>{
+    await Movies.findOne({ObjectId: req.params.MovieID})
     .then((movie)=>{
         res.json(movie)
     })
