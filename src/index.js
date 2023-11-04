@@ -188,9 +188,9 @@ app.post('/Users/:Username/FavMovies/Add/:MovieID', async (req, res) => {
     });
 });
 // Remove Favorite MovieBy ID
-app.delete('/Users/:Username/FavMovies/Delete/:_id', async (req, res) => {
+app.delete('/Users/:Username/FavMovies/Delete/:MovieID', async (req, res) => {
     await Users.updateOne({Username: req.params.Username },
-        {FavoriteMovies: { $pull: { ObjectId: Number(req.params._id)}}} )
+        {FavoriteMovies: { $pull: { ObjectId: Number(req.params.MovieID)}}} )
     .then((removed)=>{
         res.json(removed)
     })
