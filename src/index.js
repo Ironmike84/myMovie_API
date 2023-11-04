@@ -189,8 +189,11 @@ app.post('/Users/:Username/FavMovies/Add/:MovieID', async (req, res) => {
 });
 // Remove Favorite MovieBy ID
 app.delete('/Users/:Username/FavMovies/Delete/:MovieID', async (req, res) => {
-    await Users.findOneAndRemove({Username: req.params.Username },
-        {FavoriteMovies: { $pull: { "_id.ObjectId": Number(req.params.MovieID)}}} )
+    await Users.findOneAndUpdate({ Username: req.params.Username }, {
+        $pull: { FavoriteMovies: {
+            ObjectId: req.params.MovieID
+        }}},
+     { new: true }) // This line makes sure that the updated document is returned
     .then((removed)=>{
         res.json(removed)
     })
