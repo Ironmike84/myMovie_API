@@ -32,7 +32,7 @@ const UsersSchema = mongoose.Schema ({
     Username: {type: String, required: true},
     Password: String,
     Email: String,
-    Birthday: Date,
+    Birthday: Date.toDateString(),
     FavoriteMovies:[{type: Object, ref:'Movies'}],
     ImagePath: String
 })
