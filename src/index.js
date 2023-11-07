@@ -238,8 +238,8 @@ app.get('/Directors', async (req, res)=>{
 })
 
 // Get Director By Name
-app.get('/Directors/:Name', async (req, res)=>{
-    await Directors.find({Name: req.params.Name})
+app.get('/Directors/:_id', async (req, res)=>{
+    await Directors.find({ObjectId: req.params._id})
     .then((director)=>{
         res.json(director)
     })

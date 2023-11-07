@@ -16,9 +16,9 @@ let Movies = [
       Death: "N/A",
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5016), Name: "Natalie Portman"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5017), Name: "Ashton Kutcher"}},
       "Cast":
       {_id:{ObjectId:(5018), Name: "Kevin Kline"}}
@@ -46,9 +46,9 @@ let Movies = [
       Death: "N/A",
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5019), Name: "Chris Pratt"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5020), Name: "Vin Diesel"}},
       "Cast":
       {_id:{ObjectId:(5021), Name: "Bradley Cooper"}}
@@ -75,9 +75,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5022), Name: "Tobey Maguire"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5023), Name: "Kirsten Dunst"}},
       "Cast":
       {_id:{ObjectId:(5024), Name: "Willem Dafoe"}}
@@ -104,9 +104,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5025), Name: "Ryan Gosling"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5026), Name: "Rachel McAdams"}},
       "Cast":
       {_id:{ObjectId:(5027), Name: "James Garner"}}
@@ -133,9 +133,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5028), Name: "Keanu Reeves"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5029), Name: "Laurence Fishburne"}},
       "Cast":
       {_id:{ObjectId:(5030), Name: "Carrie-Anne Moss"}}
@@ -162,9 +162,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5004), Name: "Robert Downey Jr."}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5032), Name: "Mickey Rourke"}},
       "Cast":
       {_id:{ObjectId:(5005), Name: "Gwyneth Paltrow"}}
@@ -191,9 +191,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5004), Name: "Robert Downey Jr."}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5032), Name: "Guy Pearce"}},
       "Cast":
       {_id:{ObjectId:(5005), Name: "Gwyneth Paltrow"}}
@@ -220,9 +220,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5033), Name: "Chris Evans"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5004), Name: "Robert Downey Jr."}},
       "Cast":
       {_id:{ObjectId:(5034), Name: "Mark Ruffalo"}}
@@ -249,9 +249,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5035), Name: "Tim Robbins"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5036), Name: "Morgan Freeman"}},
       "Cast":
       {_id:{ObjectId:(5037), Name: "Bob Gunton"}}
@@ -278,9 +278,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5013), Name: "Tom Hanks"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5038), Name: "Michael Clarke Duncan"}},
       "Cast":
       {_id:{ObjectId:(5039), Name: "David Morse"}}
@@ -307,9 +307,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5040), Name: "Marlon Brando"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5041), Name: "Al Pacino"}},
       "Cast":
       {_id:{ObjectId:(5042), Name: "James Caan"}}
@@ -336,9 +336,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5013), Name: "Tom Hanks"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5043), Name: "Robin Wright"}},
       "Cast":
       {_id:{ObjectId:(5044), Name: "Gary Sinise"}}
@@ -365,9 +365,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5045), Name: "Jodie Foster"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5046), Name: "Matthew McConaughey"}},
       "Cast":
       {_id:{ObjectId:(5047), Name: "Tom Skerritt"}}
@@ -394,9 +394,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5048), Name: "Michael J. Fox"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5049), Name: "Christopher Lloyd"}},
       "Cast":
       {_id:{ObjectId:(5050), Name: "Lea Thompson"}}
@@ -423,9 +423,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5013), Name: "Tom Hanks"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5051), Name: "Helen Hunt"}},
       "Cast":
       {_id:{ObjectId:(5052), Name: "Paul Sanchez"}}
@@ -452,9 +452,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5053), Name: "Denzel Washington"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5054), Name: "Nadine Velazquez"}},
       "Cast":
       {_id:{ObjectId:(5055), Name: "Don Cheadle"}}
@@ -481,9 +481,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5013), Name: "Tom Hanks"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5056), Name: "Matt Damon"}},
       "Cast":
       {_id:{ObjectId:(5057), Name: "Tom Sizemore"}}
@@ -510,9 +510,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5013), Name: "Liam Neeson"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5056), Name: "Ralph Fiennes"}},
       "Cast":
       {_id:{ObjectId:(5057), Name: "Ben Kingsley"}}
@@ -539,9 +539,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5061), Name: "Henry Thomas"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5062), Name: "Drew Barrymore"}},
       "Cast":
       {_id:{ObjectId:(5063), Name: "Peter Coyote"}}
@@ -568,9 +568,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5064), Name: "Harrison Ford"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5065), Name: "Karen Allen"}},
       "Cast":
       {_id:{ObjectId:(5066), Name: "Paul Freeman"}}
@@ -597,9 +597,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5067), Name: "Tom Cruise"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5068), Name: "Colin Farrell"}},
       "Cast":
       {_id:{ObjectId:(5069), Name: "Samantha Morton"}}
@@ -626,9 +626,9 @@ let Movies = [
       Death: "N/A"
     },
     Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5070), Name: "Roy Scheider"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5071), Name: "Robert Shaw"}},
       "Cast":
       {_id:{ObjectId:(5072), Name: "Richard Dreyfuss"}}
@@ -655,9 +655,9 @@ let Movies = [
     Death: "N/A"
     },
   Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5073), Name: "Bill Murray"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5074), Name: "Dan Aykroyd"}},
       "Cast":
       {_id:{ObjectId:(5075), Name: "Sigourney Weaver"}}
@@ -684,9 +684,9 @@ let Movies = [
     Death: "N/A"
     },
   Actors:[{
-      "Star Actor":
+      "StarActor":
       {_id:{ObjectId:(5078), Name: "Will Ferrell"}},
-      "Supporting Actor":
+      "SupportingActor":
       {_id:{ObjectId:(5076), Name: "John C. Reilly"}},
       "Cast":
       {_id:{ObjectId:(5077), Name: "Sacha Baron Cohen"}}
