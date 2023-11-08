@@ -203,8 +203,8 @@ app.delete('/Users/:Username/FavMovies/Delete/:MovieID', async (req, res) => {
 });
 
 //Get Description of Genre
-app.get('/Genre/:Name', async (req, res)=>{
-    await Genres.find({Name: req.params.Name})
+app.get('/Genre', async (req, res)=>{
+    await Genres.find()
     .then((Genre)=>{
         res.json(Genre)
     })
