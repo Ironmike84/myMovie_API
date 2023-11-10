@@ -261,5 +261,15 @@ app.get('/Actors', async (req, res)=>{
     })
 })
 
+app.get('/Actors/:ActorID', async (req, res)=>{
+    await Actors.find({"_id.ObjectId": req.params.ActorID})
+    .then((actor)=>{
+        res.json(actor)
+    }).catch((err)=>{
+        console.error(err)
+        res.status(500).send('Error: ' + err)
+    })
+})
+
 
 app.listen(PORT, ()=>{console.log(`Your Server is Listening on Port: ${PORT}`)})
